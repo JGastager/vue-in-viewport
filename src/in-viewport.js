@@ -1,4 +1,8 @@
-import defaultConfig from "./config";
+const defaultConfig = {
+    className: "in-viewport",
+    offsetTop: 0,
+    offsetBottom: 0,
+};
 
 const InViewportDirective = {
     install(Vue, customConfig = {}) {
