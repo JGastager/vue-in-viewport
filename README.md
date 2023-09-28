@@ -6,16 +6,18 @@ Vue 3 directive that bindes classes to an element if it is visible in viewport.
 
 ```JavaScript
 import Vue from 'vue';
-import VueInViewport from 'vue-in-viewport';
+import MyVuePackage from 'my-vue-package';
 
-// Custom configuration
-const Options = {
-    className: 'in-viewport',
-    offsetTop: 20,
-    offsetBottom: 20
-};
+// Use default options configuration
+Vue.use(MyVuePackage);
 
-Vue.use(VueInViewport, Options);
+// Or provide custom options
+Vue.use(MyVuePackage, {
+    className: "in-viewport",
+    offsetTop: 0,
+    offsetBottom: 0,
+    // ... more options
+});
 ```
 
 ## Options
