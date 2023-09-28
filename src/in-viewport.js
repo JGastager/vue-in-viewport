@@ -1,40 +1,30 @@
-const defaultConfig = {
-    className: "in-viewport",
-    offsetTop: 0,
-    offsetBottom: 0,
-};
-
 const InViewportDirective = {
-    install(Vue, customConfig = {}) {
-        // Merge custom config with default config
-        const globalConfig = { ...defaultConfig, ...customConfig };
+    inserted(el, binding, vnode) {
+        // Access options globally
+        const globalOptions = vnode.context.$inViewport;
 
-        Vue.directive("in-viewport", {
-            inserted(el, binding) {
-                // Merge local options (provided in the directive's binding value) with global config
-                const options = { ...globalConfig, ...binding.value };
+        // Merge local options (provided in the directive's binding value) with global config
+        const options = { ...globalOptions, ...binding.value };
 
-                function checkViewport() {
-                    const rect = el.getBoundingClientRect();
-                    const isInViewport =
-                        rect.top + options.offsetTop <= window.innerHeight && rect.bottom - options.offsetBottom >= 0;
-                    if (isInViewport) {
-                        el.classList.add(options.className);
-                        window.removeEventListener("scroll", checkViewport);
-                    }
-                }
+        function checkViewport() {
+            const rect = el.getBoundingClientRect();
+            const isInViewport =
+                rect.top + options.offsetTop <= window.innerHeight && rect.bottom - options.offsetBottom >= 0;
+            if (isInViewport) {
+                el.classList.add(options.className);
+                window.removeEventListener("scroll", checkViewport);
+            }
+        }
 
-                window.addEventListener("scroll", checkViewport);
-                checkViewport(); // initial check
+        window.addEventListener("scroll", checkViewport);
+        checkViewport(); // initial check
 
-                // Attach the function to the element for later cleanup
-                el._checkViewport = checkViewport;
-            },
-            unbind(el) {
-                // Cleanup
-                window.removeEventListener("scroll", el._checkViewport);
-            },
-        });
+        // Attach the function to the element for later cleanup
+        el._checkViewport = checkViewport;
+    },
+    unbind(el) {
+        // Cleanup
+        window.removeEventListener("scroll", el._checkViewport);
     },
 };
 

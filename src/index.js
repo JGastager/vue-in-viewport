@@ -1,17 +1,18 @@
 // Import directive logic
 import directive from "./in-viewport.js";
 
+// Default options
+const defaultOptions = {
+    className: "in-viewport",
+    offsetTop: 0,
+    offsetBottom: 0,
+};
+
 // Define the Vue plugin
 const InViewport = {
     install(Vue, customOptions = {}) {
         // Merge default options with user-provided options
-        const mergedOptions = {
-            // Default options
-            className: "in-viewport",
-            offsetTop: 0,
-            offsetBottom: 0,
-            ...customOptions,
-        };
+        const mergedOptions = { ...defaultOptions, ...customOptions };
 
         // Provide options globally
         Vue.prototype.$inViewport = mergedOptions;
