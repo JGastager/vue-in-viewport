@@ -1,10 +1,10 @@
 {
   "name": "vue-in-viewport",
-  "version": "0.0.1",
-  "description": "Vue 3 directive that bindes classes to an element if it is visible in viewport.",
-  "main": "in-viewport.js",
+  "version": "1.0.0",
+  "description": "Vue 3 plugin with directive that bindes classes to an element if it is visible in viewport.",
+  "main": "index.js",
   "scripts": {
-    "test": "test"
+    "build": "terser src -o dist --compress --mangle"
   },
   "repository": {
     "type": "git",
@@ -19,9 +19,15 @@
     "classbinding"
   ],
   "author": "Jonathan Gastager",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/JGastager/vue-in-viewport/issues"
   },
-  "homepage": "https://github.com/JGastager/vue-in-viewport#readme"
+  "homepage": "https://github.com/JGastager/vue-in-viewport#readme",
+  "peerDependencies": {
+    "vue": "^3.x.x"
+  },
+  "devDependencies": {
+    "terser": "^5.20.0"
+  }
 }
