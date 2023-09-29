@@ -1,5 +1,5 @@
 // Import directive logic
-import directive from "./in-viewport.js";
+import directive from "./in-viewport-directive.js";
 
 // Default options
 const defaultOptions = {
@@ -15,7 +15,9 @@ const InViewport = {
         const mergedOptions = { ...defaultOptions, ...customOptions };
 
         // Provide options globally
-        Vue.prototype.$inViewport = mergedOptions;
+        Vue.prototype.inViewport = {
+            options: mergedOptions,
+        };
 
         // Register the directive globally
         Vue.directive("in-viewport", directive);

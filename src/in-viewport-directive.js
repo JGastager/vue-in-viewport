@@ -1,7 +1,7 @@
 const InViewportDirective = {
     inserted(el, binding, vnode) {
         // Access options globally
-        const globalOptions = vnode.context.$inViewport;
+        const globalOptions = vnode.context.$inViewport.options;
 
         // Merge local options (provided in the directive's binding value) with global config
         const options = { ...globalOptions, ...binding.value };
