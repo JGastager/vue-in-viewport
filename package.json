@@ -2,9 +2,9 @@
   "name": "vue-in-viewport",
   "version": "1.0.0",
   "description": "Vue 3 plugin with directive that bindes classes to an element if it is visible in viewport.",
-  "main": "index.js",
+  "main": "dist/in-viewport.min.js",
   "scripts": {
-    "build": "terser src -o dist --compress --mangle"
+    "build": "terser src/*.js -o dist/in-viewport.min.js --compress --mangle"
   },
   "repository": {
     "type": "git",
