@@ -4,7 +4,7 @@
   "description": "Vue 3 plugin with directive that bindes classes to an element if it is visible in viewport.",
   "main": "dist/in-viewport.min.js",
   "scripts": {
-    "build": "terser src/*.js -o dist/in-viewport.min.js --compress --mangle"
+    "build": "webpack --config webpack.config.js"
   },
   "repository": {
     "type": "git",
@@ -28,6 +28,7 @@
     "vue": "^3.x.x"
   },
   "devDependencies": {
-    "terser": "^5.20.0"
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
   }
 }
