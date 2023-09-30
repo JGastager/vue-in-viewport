@@ -7,19 +7,24 @@ Vue 3 directive that bindes classes to an element if it is visible in viewport.
 Import the Package as Vue plugin
 
 ```JavaScript
-import Vue from "vue";
+import { createApp } from "vue";
 import VueInViewport from "vue-in-viewport";
 
+const app = createApp(/* Your main app component */);
+
 // Use default options configuration
-Vue.use(VueInViewport);
+app.use(VueInViewport);
 
 // Or provide custom options
-Vue.use(VueInViewport, {
+app.use(VueInViewport, {
     className: "in-viewport",
     offsetTop: 0,
     offsetBottom: 0,
     // ... more options
 });
+
+// Mount your app to the DOM
+app.mount("#app");
 ```
 
 Add `v-in-viewport` to your desired element in your Vue template.
