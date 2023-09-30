@@ -22,6 +22,16 @@ Vue.use(VueInViewport, {
 });
 ```
 
+Add `v-in-viewport` to your desired element in your Vue template.
+
+```HTML
+<template>
+    <div v-in-viewport class="my-in-viewport-element">
+        <!-- some content -->
+    </div>
+</template>
+```
+
 ## Options
 
 WIP
