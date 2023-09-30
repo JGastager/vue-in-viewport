@@ -41,7 +41,7 @@ You can also set the options for every element individualy by parsing the option
 
 ```HTML
 <template>
-    <div v-in-viewport="{className: "in-viewport", offsetTop: 0, offsetBottom: 0,}" class="my-in-viewport-element">
+    <div v-in-viewport="{className: 'in-viewport', offsetTop: 0, offsetBottom: 0,}" class="my-in-viewport-element">
         <!-- some content -->
     </div>
 </template>
@@ -51,8 +51,8 @@ You can also set the options for every element individualy by parsing the option
 
 WIP
 
-| Option Key   | Value Type | Default Value | Description                                   |
-| ------------ | ---------- | ------------- | --------------------------------------------- |
-| className    | String     | in-viewport   |                                               |
-| offsetTop    | Number     | 0             | Offset from top of the viewport in pixels.    |
-| offsetBottom | Number     | 0             | Offset from bottom of the viewport in pixels. |
+| Option Key     | Value Type | Default Value | Description                                   |
+| -------------- | ---------- | ------------- | --------------------------------------------- |
+| `className`    | String     | `in-viewport` |                                               |
+| `offsetTop`    | Number     | `0`           | Offset from top of the viewport in pixels.    |
+| `offsetBottom` | Number     | `0`           | Offset from bottom of the viewport in pixels. |
