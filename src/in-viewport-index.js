@@ -10,17 +10,17 @@ const defaultOptions = {
 
 // Define the Vue plugin
 const InViewport = {
-    install(Vue, customOptions = {}) {
+    install(app, customOptions = {}) {
         // Merge default options with user-provided options
         const mergedOptions = { ...defaultOptions, ...customOptions };
 
         // Provide options globally
-        Vue.prototype.inViewport = {
+        app.config.globalProperties.$inViewport = {
             options: mergedOptions,
         };
 
         // Register the directive globally
-        Vue.directive("in-viewport", directive);
+        app.directive("in-viewport", directive);
     },
 };
 

@@ -1,7 +1,7 @@
 const InViewportDirective = {
-    inserted(el, binding, vnode) {
+    mounted(el, binding, vnode) {
         // Access options globally
-        const globalOptions = vnode.context.$inViewport.options;
+        const globalOptions = vnode.appContext.config.globalProperties.$inViewport.options;
 
         // Merge local options (provided in the directive's binding value) with global config
         const options = { ...globalOptions, ...binding.value };
@@ -22,7 +22,7 @@ const InViewportDirective = {
         // Attach the function to the element for later cleanup
         el._checkViewport = checkViewport;
     },
-    unbind(el) {
+    beforeUnmount(el) {
         // Cleanup
         window.removeEventListener("scroll", el._checkViewport);
     },
