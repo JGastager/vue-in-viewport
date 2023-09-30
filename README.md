@@ -7,8 +7,8 @@ Vue 3 directive that bindes classes to an element if it is visible in viewport.
 Import the Package as Vue plugin
 
 ```JavaScript
-import Vue from 'vue';
-import VueInViewport from 'vue-in-viewport';
+import Vue from "vue";
+import VueInViewport from "vue-in-viewport";
 
 // Use default options configuration
 Vue.use(VueInViewport);
