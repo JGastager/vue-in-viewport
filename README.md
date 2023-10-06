@@ -52,8 +52,11 @@ You can also set the options for every element individualy by parsing the option
 > [!NOTE]
 > All options are still work in prgress.
 
-| Option Key     | Value Type | Default Value | Description                                   |
-| -------------- | ---------- | ------------- | --------------------------------------------- |
-| `className`    | String     | `in-viewport` |                                               |
-| `offsetTop`    | Number     | `0`           | Offset from top of the viewport in pixels.    |
-| `offsetBottom` | Number     | `0`           | Offset from bottom of the viewport in pixels. |
+| Option Key     | Value Type | Default Value     | Description                                                                   |
+| -------------- | ---------- | ----------------- | ----------------------------------------------------------------------------- |
+| `className`    | String     | `in-viewport`     | General identificator class.                                                  |
+| `classActive`  | String     | `is-in-viewport`  | Class that's been added when visible in viewport.                             |
+| `classViewed`  | String     | `was-in-viewport` | Class that's been added when visible in viewport once.                        |
+| `offsetBottom` | Number     | `0`               | Offset from bottom of the viewport in pixels.                                 |
+| `offsetBottom` | Number     | `0`               | Offset from bottom of the viewport in pixels.                                 |
+| `triggerOnce`  | Boolean    | `false`           | When set, there will be no viewport-check once viewed to safe on performance. |
