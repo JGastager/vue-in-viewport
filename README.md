@@ -2,7 +2,13 @@
 
 Vue 3 directive that bindes classes to an element if it is visible in viewport.
 
-## How to setup:
+## Installation
+
+```Bash
+npm install vue-in-viewport
+```
+
+## Usage
 
 Import the Package as Vue plugin
 
@@ -60,3 +66,4 @@ You can also set the options for every element individualy by parsing the option
 | `offsetBottom` | Number     | `0`               | Offset from bottom of the viewport in pixels.                                 |
 | `offsetBottom` | Number     | `0`               | Offset from bottom of the viewport in pixels.                                 |
 | `triggerOnce`  | Boolean    | `false`           | When set, there will be no viewport-check once viewed to safe on performance. |
+| `delay`        | Number     | `0`               | Sets a delay for the class binding in millisecondy.                           |

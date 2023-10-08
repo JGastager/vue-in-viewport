@@ -10,6 +10,7 @@ const InViewportDirective = {
             offsetTop: 0,
             offsetBottom: 0,
             triggerOnce: false,
+            delay: 0,
         };
 
         // Merge local options (provided in the directive's binding value) with global config
@@ -23,15 +24,21 @@ const InViewportDirective = {
             const isInViewport =
                 rect.top + options.offsetBottom <= window.innerHeight && rect.bottom - options.offsetTop >= 0;
             if (isInViewport) {
-                el.classList.add(options.classViewed);
+                setTimeout(() => {
+                    el.classList.add(options.classViewed);
+                }, options.delay);
                 if (!options.triggerOnce) {
-                    el.classList.add(options.classActive);
+                    setTimeout(() => {
+                        el.classList.add(options.classActive);
+                    }, options.delay);
                 } else {
                     // if there should's be an active state remove event listener after triggering once
                     window.removeEventListener("scroll", checkViewport);
                 }
             } else if (!options.triggerOnce) {
-                el.classList.remove(options.classActive);
+                setTimeout(() => {
+                    el.classList.remove(options.classActive);
+                }, options.delay);
             }
         }
 
