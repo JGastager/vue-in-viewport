@@ -4,8 +4,12 @@ import directive from "./in-viewport-directive.js";
 // Default options
 const defaultOptions = {
     className: "in-viewport",
+    classActive: "is-in-viewport",
+    classViewed: "was-in-viewport",
     offsetTop: 0,
     offsetBottom: 0,
+    triggerOnce: false,
+    delay: 0,
 };
 
 // Define the Vue plugin
