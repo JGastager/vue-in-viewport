@@ -19,26 +19,38 @@ const InViewportDirective = {
         // Add generell in-viewport class
         el.classList.add(options.className);
 
+        function addClass(el, className, delay) {
+            console.log("addClass");
+            setTimeout(() => {
+                requestAnimationFrame(() => {
+                    el.classList.add(className);
+                });
+            }, delay);
+        }
+
+        function removeClass(el, className, delay) {
+            console.log("removeClass");
+            setTimeout(() => {
+                requestAnimationFrame(() => {
+                    el.classList.remove(className);
+                });
+            }, delay);
+        }
+
         function checkViewport() {
             const rect = el.getBoundingClientRect();
             const isInViewport =
                 rect.top + options.offsetBottom <= window.innerHeight && rect.bottom - options.offsetTop >= 0;
             if (isInViewport) {
-                setTimeout(() => {
-                    el.classList.add(options.classViewed);
-                }, options.delay);
+                addClass(el, options.classViewed, options.delay);
                 if (!options.triggerOnce) {
-                    setTimeout(() => {
-                        el.classList.add(options.classActive);
-                    }, options.delay);
+                    addClass(el, options.classActive, options.delay);
                 } else {
                     // if there should's be an active state remove event listener after triggering once
                     window.removeEventListener("scroll", checkViewport);
                 }
             } else if (!options.triggerOnce) {
-                setTimeout(() => {
-                    el.classList.remove(options.classActive);
-                }, options.delay);
+                removeClass(el, options.classActive, options.delay);
             }
         }
 
