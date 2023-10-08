@@ -1,7 +1,6 @@
 const InViewportDirective = {
     mounted(el, binding, vnode) {
         // Access options globally
-
         // FIXME const globalOptions = vnode.appContext.config.globalProperties.inViewport.options;
         const globalOptions = {
             className: "in-viewport",
@@ -19,8 +18,28 @@ const InViewportDirective = {
         // Add generell in-viewport class
         el.classList.add(options.className);
 
+        // Throttle function utility
+        function throttle(func, delay) {
+            let lastCall = 0;
+            return function (...args) {
+                const now = new Date().getTime();
+                if (now - lastCall >= delay) {
+                    lastCall = now;
+                    func(...args);
+                }
+            };
+        }
+
+        // Debounce function utility
+        function debounce(func, delay) {
+            let timeoutId;
+            return function (...args) {
+                clearTimeout(timeoutId);
+                timeoutId = setTimeout(() => func(...args), delay);
+            };
+        }
+
         function addClass(el, className, delay) {
-            console.log("addClass");
             setTimeout(() => {
                 requestAnimationFrame(() => {
                     el.classList.add(className);
@@ -29,7 +48,6 @@ const InViewportDirective = {
         }
 
         function removeClass(el, className, delay) {
-            console.log("removeClass");
             setTimeout(() => {
                 requestAnimationFrame(() => {
                     el.classList.remove(className);
@@ -38,6 +56,7 @@ const InViewportDirective = {
         }
 
         function checkViewport() {
+            console.log("trigger");
             const rect = el.getBoundingClientRect();
             const isInViewport =
                 rect.top + options.offsetBottom <= window.innerHeight && rect.bottom - options.offsetTop >= 0;
@@ -54,15 +73,30 @@ const InViewportDirective = {
             }
         }
 
-        window.addEventListener("scroll", checkViewport);
-        checkViewport(); // initial check
+        // Throttle the checkViewport function with a reasonable delay
+        const throttledCheckViewport = throttle(checkViewport, 100);
+
+        // Debounce the checkViewport function for resize events
+        const debouncedCheckViewport = debounce(checkViewport, 100);
+
+        // Add the throttled function to the scroll event listener
+        window.addEventListener("scroll", throttledCheckViewport);
+
+        // Add the debounced function to the resize event listener
+        window.addEventListener("resize", debouncedCheckViewport);
+
+        // Initial check
+        checkViewport();
 
         // Attach the function to the element for later cleanup
-        el._checkViewport = checkViewport;
+        el._throttledCheckViewport = throttledCheckViewport;
+        el._debouncedCheckViewport = debouncedCheckViewport;
     },
+
     beforeUnmount(el) {
         // Cleanup
-        window.removeEventListener("scroll", el._checkViewport);
+        window.removeEventListener("scroll", el._throttledCheckViewport);
+        window.removeEventListener("resize", el._debouncedCheckViewport);
     },
 };
 
