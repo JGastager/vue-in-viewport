@@ -63,4 +63,24 @@ You can also set the options for every element individualy by parsing the option
 | `offsetBottom` | Number     | `0`               | Offset from bottom of the viewport in pixels.                                       |
 | `offsetBottom` | Number     | `0`               | Offset from bottom of the viewport in pixels.                                       |
 | `triggerOnce`  | Boolean    | `false`           | If `true` there won't be a viewport-check after once viewed to safe on performance. |
-| `delay`        | Number     | `0`               | Sets a delay for the class binding in millisecondy.                                 |
+| `delay`        | Number     | `0`               | Sets a delay for the class binding in milliseconds.                                 |
+
+## Add Styling
+
+Now you can add your custom CSS according to your needs.
+In this case we create a fade-in effect for elements that apear in the viewport:
+
+```CSS
+/* define your initail state with .in-viewport */
+.in-viewport {
+    transition: opacity 0.2s ease, transform 0.3s ease;
+    transform: scale(0.8);
+    opacity: 0;
+}
+
+/* add your visible state with .is-in-viewport for transitioning in and out, or use .was-in-viewport to transition in only once */
+.is-in-viewport {
+    transform: scale(1);
+    opacity: 1;
+}
+```
