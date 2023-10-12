@@ -56,7 +56,6 @@ const InViewportDirective = {
         }
 
         function checkViewport() {
-            console.log("trigger");
             const rect = el.getBoundingClientRect();
             const isInViewport =
                 rect.top + options.offsetBottom <= window.innerHeight && rect.bottom - options.offsetTop >= 0;
