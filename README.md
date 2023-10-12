@@ -68,6 +68,7 @@ You can also set the options for every element individualy by parsing the option
 ## Add Styling
 
 Now you can add your custom CSS according to your needs.
+
 In this case we create a fade-in effect for elements that apear in the viewport:
 
 ```CSS
@@ -78,7 +79,8 @@ In this case we create a fade-in effect for elements that apear in the viewport:
     opacity: 0;
 }
 
-/* add your visible state with .is-in-viewport for transitioning in and out, or use .was-in-viewport to transition in only once */
+/* add your visible state with .is-in-viewport for transitioning in and out
+or use .was-in-viewport to transition in only once */
 .is-in-viewport {
     transform: scale(1);
     opacity: 1;
