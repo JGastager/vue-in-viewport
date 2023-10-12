@@ -18,13 +18,8 @@ const InViewport = {
         // Merge default options with user-provided options
         const mergedOptions = { ...defaultOptions, ...customOptions };
 
-        // Provide options globally
-        app.config.globalProperties.$inViewport = {
-            options: mergedOptions,
-        };
-
         // Register the directive globally
-        app.directive("in-viewport", directive);
+        app.directive("in-viewport", directive(mergedOptions));
     },
 };
 
