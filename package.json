@@ -1,6 +1,6 @@
 {
   "name": "vue-in-viewport",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Vue 3 plugin with directive that bindes classes to elements when in viewport.",
   "main": "dist/in-viewport.min.js",
   "scripts": {
