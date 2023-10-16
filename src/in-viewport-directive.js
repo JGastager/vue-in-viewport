@@ -5,7 +5,7 @@ export default function InViewportDirective(globalOptions) {
             const options = { ...globalOptions, ...binding.value };
 
             // Add generell in-viewport class
-            el.classList.add(options.className);
+            el.classList.add(options.classDefault);
 
             // Throttle function utility
             function throttle(func, delay) {
@@ -28,18 +28,18 @@ export default function InViewportDirective(globalOptions) {
                 };
             }
 
-            function addClass(el, className, delay) {
+            function addClass(el, classDefault, delay) {
                 setTimeout(() => {
                     requestAnimationFrame(() => {
-                        el.classList.add(className);
+                        el.classList.add(classDefault);
                     });
                 }, delay);
             }
 
-            function removeClass(el, className, delay) {
+            function removeClass(el, classDefault, delay) {
                 setTimeout(() => {
                     requestAnimationFrame(() => {
-                        el.classList.remove(className);
+                        el.classList.remove(classDefault);
                     });
                 }, delay);
             }

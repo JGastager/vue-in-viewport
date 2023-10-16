@@ -23,7 +23,7 @@ app.use(VueInViewport);
 
 // Or provide custom options
 app.use(VueInViewport, {
-    className: "in-viewport",
+    classDefault: "in-viewport",
     offsetTop: 0,
     offsetBottom: 0,
     // ... more options
@@ -47,7 +47,7 @@ You can also set the options for every element individualy by parsing the option
 
 ```HTML
 <template>
-    <div v-in-viewport="{className: 'in-viewport', offsetTop: 0, offsetBottom: 0}" class="my-in-viewport-element">
+    <div v-in-viewport="{classDefault: 'in-viewport', offsetTop: 0, offsetBottom: 0}" class="my-in-viewport-element">
         <!-- some content -->
     </div>
 </template>
@@ -57,7 +57,7 @@ You can also set the options for every element individualy by parsing the option
 
 | Option Key     | Value Type | Default Value     | Description                                                                         |
 | -------------- | ---------- | ----------------- | ----------------------------------------------------------------------------------- |
-| `className`    | String     | `in-viewport`     | General identificator class.                                                        |
+| `classDefault` | String     | `in-viewport`     | General identificator class.                                                        |
 | `classActive`  | String     | `is-in-viewport`  | Class that's been added when visible in viewport.                                   |
 | `classViewed`  | String     | `was-in-viewport` | Class that's been added when visible in viewport once.                              |
 | `offsetBottom` | Number     | `0`               | Offset from bottom of the viewport in pixels.                                       |
@@ -72,7 +72,7 @@ Now you can add your custom CSS according to your needs.
 In this case we create a fade-in effect for elements that apear in the viewport:
 
 ```CSS
-/* define your initail state with .in-viewport */
+/* define your initial state with .in-viewport */
 .in-viewport {
     transition: opacity 0.2s ease, transform 0.3s ease;
     transform: scale(0.8);
