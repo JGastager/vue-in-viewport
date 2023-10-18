@@ -27,7 +27,8 @@ export default function InViewportDirective(globalOptions) {
                     timeoutId = setTimeout(() => func(...args), delay);
                 };
             }
-
+            
+            // Add class function
             function addClass(el, classDefault, delay) {
                 setTimeout(() => {
                     requestAnimationFrame(() => {
@@ -36,6 +37,7 @@ export default function InViewportDirective(globalOptions) {
                 }, delay);
             }
 
+            // Remove class function
             function removeClass(el, classDefault, delay) {
                 setTimeout(() => {
                     requestAnimationFrame(() => {
@@ -53,7 +55,7 @@ export default function InViewportDirective(globalOptions) {
                     if (!options.triggerOnce) {
                         addClass(el, options.classActive, options.delay);
                     } else {
-                        // if there should's be an active state remove event listener after triggering once
+                        // if there shouldn't be an active state, remove event listener after triggering once
                         window.removeEventListener("scroll", checkViewport);
                     }
                 } else if (!options.triggerOnce) {
