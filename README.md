@@ -1,6 +1,6 @@
 # Vue in Viewport
 
-Vue 3 plugin that bindes classes to an element if it appears in the client's viewport.
+**Vue 3 plugin that bindes classes to an element if it appears in the client's viewport.**
 The Plugin contains a lightweight, non-dependent Vue directive that is utilizing the intersection observer.
 
 ## Installation
