@@ -1,10 +1,11 @@
 {
   "name": "vue-in-viewport",
-  "version": "1.0.1",
-  "description": "Vue 3 plugin with directive that bindes classes to elements when in viewport.",
-  "main": "dist/in-viewport.min.js",
+  "version": "1.2.0",
+  "description": "Vue 3 plugin that bindes classes to an element if it appears in the client's viewport. The Plugin consists of a lightweight, non-dependent Vue directive that is utilizing the intersection observer.",
+  "main": "dist/in-viewport.js",
   "scripts": {
-    "build": "webpack --config webpack.config.js"
+    "build": "rm -rf dist && mkdir dist && cp -R src/. dist && mv dist/in-viewport-plugin.js dist/in-viewport.js",
+    "bundle": "webpack --config webpack.config.js"
   },
   "repository": {
     "type": "git",
@@ -13,9 +14,8 @@
   "keywords": [
     "Vue3",
     "viewport",
-    "observer",
+    "Intersection Observer",
     "directive",
-    "visible",
     "classbinding"
   ],
   "author": "Jonathan Gastager",

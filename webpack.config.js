@@ -1,5 +1,5 @@
 module.exports = {
-    entry: "./src/in-viewport-index.js",
+    entry: "./src/in-viewport-plugin.js",
     output: {
         filename: "in-viewport.min.js",
         libraryTarget: "umd",
