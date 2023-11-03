@@ -1,26 +1,30 @@
 export default function InViewportDirective(globalOptions) {
     return {
-        mounted(el, binding) {
+        beforeMount(el, binding) {
             // Merge local options (provided in the directive's binding value) with global options
             const options = { ...globalOptions, ...binding.value };
 
             // Add generell in-viewport class
             el.classList.add(options.classDefault);
+        },
+        mounted(el, binding) {
+            // Merge local options (provided in the directive's binding value) with global options
+            const options = { ...globalOptions, ...binding.value };
 
             // Add class function
-            function addClass(el, classDefault, delay) {
+            function addClass(el, className, delay) {
                 setTimeout(() => {
                     requestAnimationFrame(() => {
-                        el.classList.add(classDefault);
+                        el.classList.add(className);
                     });
                 }, delay);
             }
 
             // Remove class function
-            function removeClass(el, classDefault, delay) {
+            function removeClass(el, className, delay) {
                 setTimeout(() => {
                     requestAnimationFrame(() => {
-                        el.classList.remove(classDefault);
+                        el.classList.remove(className);
                     });
                 }, delay);
             }
