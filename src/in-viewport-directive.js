@@ -48,7 +48,7 @@ export default function InViewportDirective(globalOptions) {
 
             // Create a new intersection observer instance with the given options
             const observer = new IntersectionObserver(checkViewport, {
-                rootMargin: `${options.offsetTop}px 0px ${options.offsetBottom}px 0px`,
+                rootMargin: `${options.offsetTop * -1}px 0px ${options.offsetBottom * -1}px 0px`,
                 threshold: options.threshold / 100,
             });
 
