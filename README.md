@@ -24,7 +24,7 @@ app.use(VueInViewport);
 
 // Or provide custom options
 app.use(VueInViewport, {
-    classDefault: "in-viewport",
+    classInit: "in-viewport",
     delay: 300,
     // ... more options
 });
@@ -57,7 +57,7 @@ You can also set the options for every element individualy by parsing the option
 
 | Option Key     | Value Type | Default Value     | Description                                                                                       |
 | -------------- | ---------- | ----------------- | ------------------------------------------------------------------------------------------------- |
-| `classDefault` | String     | `in-viewport`     | General identificator class.                                                                      |
+| `classInit`    | String     | `in-viewport`     | General identificator class.                                                                      |
 | `classActive`  | String     | `is-in-viewport`  | Class that's been added when visible in viewport.                                                 |
 | `classViewed`  | String     | `was-in-viewport` | Class that's been added when visible in viewport once.                                            |
 | `offsetTop`    | Number     | `0`               | Offset from top of the viewport in pixels.                                                        |

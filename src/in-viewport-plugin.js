@@ -3,7 +3,7 @@ import directive from "./in-viewport-directive.js";
 
 // Default options
 const defaultOptions = {
-    classDefault: "in-viewport",
+    classInit: "in-viewport",
     classActive: "is-in-viewport",
     classViewed: "was-in-viewport",
     offsetTop: 0,

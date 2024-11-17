@@ -5,7 +5,7 @@ export default function InViewportDirective(globalOptions) {
             const options = { ...globalOptions, ...binding.value };
 
             // Add generell in-viewport class
-            el.classList.add(options.classDefault);
+            el.classList.add(options.classInit);
         },
         mounted(el, binding) {
             // Merge local options (provided in the directive's binding value) with global options
