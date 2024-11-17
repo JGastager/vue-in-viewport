@@ -1,6 +1,6 @@
 {
   "name": "vue-in-viewport",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "description": "Vue 3 plugin that bindes classes to an element if it appears in the client's viewport. The Plugin consists of a lightweight, non-dependent Vue directive that is utilizing the intersection observer.",
   "main": "dist/in-viewport.js",
   "scripts": {
