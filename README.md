@@ -47,7 +47,7 @@ You can also set the options for every element individualy by parsing the option
 
 ```HTML
 <template>
-    <div v-in-viewport="{classDefault: 'in-viewport', delay: 300}" class="my-in-viewport-element">
+    <div v-in-viewport="{classInit: 'in-viewport', delay: 300}" class="my-in-viewport-element">
         <!-- some content -->
     </div>
 </template>
