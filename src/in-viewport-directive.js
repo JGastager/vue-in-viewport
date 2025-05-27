@@ -36,7 +36,7 @@ export default function InViewportDirective(globalOptions) {
                         addClass(el, options.classViewed, options.delay);
                         if (!options.triggerOnce) {
                             addClass(el, options.classActive, options.delay);
-                        } else {
+                        } else if (observer) {
                             // if there shouldn't be an active state, remove intersection observer after triggering once
                             observer.unobserve(el);
                         }
@@ -60,7 +60,9 @@ export default function InViewportDirective(globalOptions) {
         },
         beforeUnmount(el) {
             // Cleanup
-            el._observer.unobserve(el);
+            if (el._observer) {
+                el._observer.unobserve(el);
+            }
         },
     };
 }
